@@ -5,29 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<bean id="product1" class="mylab.order.di.xml.Product">
-        <property name="id" value="p001"/>
-        <property name="name" value="Apple"/>
-        <property name="price" value="1000"/>
-    </bean>
+    <context:component-scan base-package="mylab.user.di" />
     
-    <bean id="product2" class="mylab.order.di.xml.Product">
-        <constructor-arg value="p002"/>
-        <constructor-arg value="Banana"/>
-        <constructor-arg value="1500"/>
+    <bean id="userRepository" class="mylab.user.di.UserRepository">
+        <property name="dbType" value="MySQL" />
     </bean>
-    
-    <bean id="shoppingCart" class="mylab.order.di.xml.ShoppingCart">
-        <property name="products">
-            <list>
-                <ref bean="product1"/>
-                <ref bean="product2"/>
-            </list>
-        </property>
-    </bean>
-    
-    <bean id="orderService" class="mylab.order.di.xml.OrderService">
-        <property name="shoppingCart" ref="shoppingCart"/>
-    </bean>
-
 </beans>

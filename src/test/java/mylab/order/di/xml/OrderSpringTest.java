@@ -9,8 +9,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(SpringExtension.class)  // << 이거 추가
-@ContextConfiguration(locations = "classpath:mylab-user-di.xml")  // << 스프링 설정파일 경로 지정
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = "classpath:mylab-order-di.xml")
 public class OrderSpringTest {
 	@Autowired
     private ShoppingCart cart;
